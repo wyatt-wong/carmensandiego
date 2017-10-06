@@ -17,10 +17,15 @@ I think the logic is going to trip me up a bit, there is a bunch of things that 
 ## Phases of Completion
 
 phase -4: Fill out my 3x5 cards and get a lay of the landscape
+
 phase -3: Arrange my divs and get the layout roughly together
+
 phase -2: Get the javascript working for each 3 x 5 card
+
 phase -1: Connecting all the javascript together
+
 phase 0: MVP
+
 phase 1: expand the game for further by adding more people places and things 
 
 
