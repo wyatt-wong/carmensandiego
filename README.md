@@ -8,7 +8,7 @@ The game is where you (a gumshoe detective) has to catch Carmen Sandiego (a worl
 
 ## Wireframe
 
-
+![wireframe](outline.jpg)
 
 ## Initial thoughts on game structure
 
