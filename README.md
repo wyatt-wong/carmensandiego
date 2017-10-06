@@ -1,23 +1,31 @@
-*** Name / Date ***
+*** Kareem J / Oct, 6th ***
 
-# [Name of Game] Proposal
+# Where in the world is Carmen Sandiego? Proposal
 
-## What is [name of game]?
+## What is Where in the world is Carmen Sandiego?
 
-(Brief description of the game, why you're choosing to make it)
+The game is where you (a gumshoe detective) has to catch Carmen Sandiego (a world renowed thief) around the world and arrest her before the clcok runs out
 
 ## Wireframe
 
-(Your wireframes go here. Preferably two or more)
+
 
 ## Initial thoughts on game structure
 
-(Write out what challenges you expect to encounter, or ideas you want to come up with)
+I think the logic is going to trip me up a bit, there is a bunch of things that I need to keep track of. Game state and where its at will be key to making everything work. I feel weaker in logic so I wanted to push myself a bit.
 
 ## Phases of Completion
 
-(The steps or phases you expect to go through, and the tasks that you'll need to accomplish to reach each step. These should resemble the acceptance criteria we were working through earlier.)
+phase -4: Fill out my 3x5 cards and get a lay of the landscape
+phase -3: Arrange my divs and get the layout roughly together
+phase -2: Get the javascript working for each 3 x 5 card
+phase -1: Connecting all the javascript together
+phase 0: MVP
+phase 1: expand the game for further by adding more people places and things 
+
 
 ## Links and Resources
-
-(Anything you've looked up so far or are thinking about using.)
+https://classicreload.com/where-in-the-world-is-carmen-sandiego-deluxe-edition.html
+http://www.boardgamecapital.com/where-in-the-world-is-carmen-sandiego-rules.htm
+https://media.wix.com/ugd/05f72c_977f441a32474b37beb57043a514158a.pdf
+http://www.webstepbook.com/supplements/homework/10-carmen_sandiego/
