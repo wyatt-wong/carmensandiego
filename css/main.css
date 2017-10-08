@@ -1,0 +1,66 @@
+html {
+  height: 100vh;
+}
+body {
+  min-height: 100vh;
+}
+
+.body-wrap {
+  display: flex;
+  height: 100vh;
+}
+/*Phone CSS*/
+.phone-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 800px;
+}
+.phone-wrap div {
+  border: 1px solid black;
+}
+.p-scrn {
+  height: 400px;
+}
+.p-sd {
+  display: flex;
+}
+.p-sd div {
+  flex: 1;
+  height: 50px;
+}
+.p-btns {
+  display: flex;
+  flex-wrap: wrap;
+}
+.p-btns div{
+  flex: 1;
+  height: 25px;
+}
+/*Main Game Area*/
+.main-game-area-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+#mga-display {
+
+}
+.mga-optns {
+  display:flex;
+}
+#optns-btns {
+  width: 25%;
+}
+#optns-scrn {
+  width: 75%;
+}
+.game-state {
+  display: flex;
+  flex-direction: column;
+}
+#gs-loc {
+  flex: 1;
+}
+#gs-timer {
+  flex: 1;
+}
