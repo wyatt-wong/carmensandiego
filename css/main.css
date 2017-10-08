@@ -11,15 +11,16 @@ body {
 }
 /*Phone CSS*/
 .phone-wrap {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 800px;
+  height: 600px;
 }
 .phone-wrap div {
   border: 1px solid black;
 }
-.p-scrn {
+#p-scrn {
+  flex: 2;
   height: 400px;
 }
 .p-sd {
@@ -30,20 +31,24 @@ body {
   height: 50px;
 }
 .p-btns {
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
-.p-btns div{
-  flex: 1;
+.p-btns div {
   height: 25px;
+  width: 80px;
+  margin: auto;
 }
 /*Main Game Area*/
 .main-game-area-wrap {
+  flex: 2;
   display: flex;
   flex-wrap: wrap;
 }
 #mga-display {
-
+  flex: 2;
 }
 .mga-optns {
   display:flex;
@@ -55,6 +60,7 @@ body {
   width: 75%;
 }
 .game-state {
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
