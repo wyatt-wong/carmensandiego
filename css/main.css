@@ -22,6 +22,7 @@ body {
 #p-scrn {
   flex: 2;
   height: 400px;
+  background: purple;
 }
 .p-sd {
   display: flex;
@@ -45,19 +46,38 @@ body {
 .main-game-area-wrap {
   flex: 2;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  height: 600px;
 }
 #mga-display {
   flex: 2;
+  height: 400px;
+  background: blue;
+}
+.mga-info-wrap {
+  display: flex;
+  height: 200px;
+}
+#mga-info {
+  flex: 1;
+  background: red;
 }
 .mga-optns {
+  flex: 1;
   display:flex;
 }
 #optns-btns {
-  width: 25%;
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+#optns-btns button {
+  height: 40px;
 }
 #optns-scrn {
-  width: 75%;
+  width: 80%;
+  background: yellow;
 }
 .game-state {
   flex: 1;
