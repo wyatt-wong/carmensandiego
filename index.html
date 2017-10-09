@@ -18,18 +18,26 @@
         <div id="sd-three"></div>
       </div>
       <div class="p-btns">
-        <div id="btn1"></div>
-        <div id="btn2"></div>
-        <div id="btn3"></div>
-        <div id="btn4"></div>
-        <div id="btn5"></div>
-        <div id="btn6"></div>
-        <div id="btn7"></div>
-        <div id="btn8"></div>
-        <div id="btn9"></div>
-        <div id="btn10"></div>
-        <div id="btn11"></div>
-        <div id="btn12"></div>
+        <div class="p-row">
+          <div class="btn">1</div>
+          <div class="btn">2</div>
+          <div class="btn">3</div>
+        </div>
+        <div class="p-row">
+          <div class="btn">4</div>
+          <div class="btn">5</div>
+          <div class="btn">6</div>
+        </div>
+        <div class="p-row">
+          <div class="btn">7</div>
+          <div class="btn">8</div>
+          <div class="btn">9</div>
+        </div>
+        <div class="p-row">
+          <div class="btn">*</div>
+          <div class="btn">0</div>
+          <div class="btn">#</div>
+        </div>
       </div>
     </div>
     <!-- Main Game Area -->
@@ -51,9 +59,16 @@
   </div>
     <!-- Game State -->
     <div class="game-state">
-      <div id="gs-loc"></div>
-      <div id="gs-timer"></div>
+      <div id="gs-loc">
+        <p>Your current location is United Staes</p>
+      </div>
+      <div id="gs-timer">
+        <p>Time remaining</p>
+      </div>
     </div>
   </div>
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 </html>

@@ -3,11 +3,15 @@ html {
 }
 body {
   min-height: 100vh;
+  /*background-image: url(../media/imgs/digitalworld.jpg);*/
 }
 
 .body-wrap {
   display: flex;
   height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
 }
 /*Phone CSS*/
 .phone-wrap {
@@ -15,32 +19,49 @@ body {
   display: flex;
   flex-direction: column;
   height: 600px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 8px;
 }
 .phone-wrap div {
-  border: 1px solid black;
 }
 #p-scrn {
   flex: 2;
   height: 400px;
-  background: purple;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 8px;
 }
 .p-sd {
   display: flex;
+  margin: 0 5px;
+  border-radius: 8px;
 }
 .p-sd div {
   flex: 1;
   height: 50px;
+  border: 1px solid black;
+  border-radius: 8px;
 }
 .p-btns {
   flex: 1;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  margin: 0 5px;
+  border-radius: 8px;
+  text-align: center;
 }
-.p-btns div {
-  height: 25px;
-  width: 80px;
-  margin: auto;
+.p-row {
+  flex: 1;
+  display: flex;
+}
+.p-btns .btn {
+  flex: 1;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
 }
 /*Main Game Area*/
 .main-game-area-wrap {
@@ -48,41 +69,62 @@ body {
   display: flex;
   flex-direction: column;
   height: 600px;
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 8px;
 }
+
 #mga-display {
   flex: 2;
   height: 400px;
-  background: blue;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 8px;
 }
 .mga-info-wrap {
   display: flex;
   height: 200px;
+  border-radius: 8px;
+  margin: 0 5px;
 }
 #mga-info {
   flex: 1;
-  background: red;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: 0 2px;
+  overflow-y: hidden;
 }
 .mga-optns {
   flex: 1;
   display:flex;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: 0 2px;
 }
 #optns-btns {
   flex:1;
   display: flex;
   flex-direction: column;
   width: 20%;
+  border-radius: 8px;
 }
 #optns-btns button {
   height: 40px;
+  border-radius: 8px;
 }
 #optns-scrn {
   width: 80%;
-  background: yellow;
+  border-radius: 8px;
 }
+/*Game State CSS*/
 .game-state {
   flex: 1;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  height: 200px;
 }
 #gs-loc {
   flex: 1;
@@ -90,3 +132,10 @@ body {
 #gs-timer {
   flex: 1;
 }
+/*$External CSS*/
+.gs {
+  background-image: url(../media/imgs/cartoonhq.jpg);
+  background-size: cover;
+}
+
+
