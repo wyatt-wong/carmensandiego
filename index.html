@@ -6,6 +6,7 @@
   <title>Game Page</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/main.css">
+  <script src="https://use.fontawesome.com/fbb93b5129.js"></script>
 </head>
 <body>
   <div class="body-wrap">
@@ -13,9 +14,9 @@
     <div class="phone-wrap">
       <div id="p-scrn"></div>
       <div class="p-sd">
-        <div id="sd-one"></div>
-        <div id="sd-two"></div>
-        <div id="sd-three"></div>
+        <div id="sd-one"><i class="fa fa-plane" aria-hidden="true"></i><span class="sd-r">Travel</span></div>
+        <div id="sd-two"><i class="fa fa-shield" aria-hidden="true"></i><span class="sd-r">Crime-Net</span></div>
+        <div id="sd-three"><i class="fa fa-desktop" aria-hidden="true"></i><span class="sd-r">Warrant</span></div>
       </div>
       <div class="p-btns">
         <div class="p-row">
@@ -47,11 +48,11 @@
       <div id="mga-info"></div>
       <div class="mga-optns">
         <div id="optns-btns">
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
+          <button id="evi-btn">Evidence</button>
+          <button id="dos-btn">Dossier</button>
+          <button id="opt-btn">Options</button>
+          <button id="trans-btn">Transmit</button>
+          <button id="canc-btn">Cancel</button>
         </div>
         <div id="optns-scrn"></div>
       </div>
@@ -60,10 +61,17 @@
     <!-- Game State -->
     <div class="game-state">
       <div id="gs-loc">
-        <p>Your current location is United Staes</p>
-      </div>
+<!--         <img src="./media/imgs/owldt.jpg" alt="Owl Detective">
+ --> </div>
       <div id="gs-timer">
-        <p>Time remaining</p>
+        <h2>*** Case File ***</h2>
+        <br>
+        <ul>
+          <li>Dt. <span id='player'></span></li>
+          <li>Rank: <span id='rank'></span></li>
+          <li>Location: <span id='location'></span></li>
+          <li>Time Remaining: <span id='time-remaining'></span></li>
+        </ul>
       </div>
     </div>
   </div>
