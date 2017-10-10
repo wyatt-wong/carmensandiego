@@ -1,9 +1,15 @@
 $(document).ready(function() {
   console.log('document ready!')
-//variables
+
+//Global Variables I know not a good idea
 let countries = [];
 let villains = [];
 let npcs = [];
+//Gamestate Variables
+let timeRemaining = 160; // current time remainig
+let currentLoc; //current coutnry
+let isVillian; //flag for if the villain is in town or not, responses change depending on this flag
+
 
 //Countries
 //Country Constructor
@@ -16,16 +22,12 @@ function Country(name, flag, cap, pop, lang, nd, landmark, info) {
   this.nd = nd;
   this.landmark = landmark;
   this.info = info;
+  //function that updates all views depending on the country
   this.updateCity = function() {
-    $('#gs-loc').text(this.name);
-    $('#mga-display').css({'background-image': 'url('+$(this).flag+')'})
-    $('#mga-info').text(this.info)
-
+    // $('#mga-display').css({'background-image': 'url('+$(this).flag+')'})
   }
 
   }
-
-
 
 //Function that adds country to countries[];
 function addCountry(country) {
@@ -42,6 +44,7 @@ addCountry(mexico);
 console.log(countries)
 
 //Villans
+
 //Villian Constructor
 function Villain(name, sex, occupation, eyes, hair, auto, comments) {
   this.name = name;
@@ -53,14 +56,18 @@ function Villain(name, sex, occupation, eyes, hair, auto, comments) {
   this.comments = comments;
 }
 
-//function that adds villain to villains[];
+//Function that adds villain to villains[];
 function addVillain(villain) {
   villains.push(villain);
 }
 
-//create villain
+//Create villain
 let sherrifPaulDrive = new Villain('Sherrif Paul Drive', 'Male', 'Drug Store Cowboy', 'blue', 'Blond', 'Street Truck', 'Collects baseball cards');
 addVillain(sherrifPaulDrive);
+let sherrifPaulDrive2 = new Villain('Sherrif Paul Drive2', 'Male', 'Drug Store Cowboy', 'blue', 'Blond', 'Street Truck', 'Collects baseball cards');
+addVillain(sherrifPaulDrive2);
+let sherrifPaulDrive3 = new Villain('Sherrif Paul Drive3', 'Male', 'Drug Store Cowboy', 'blue', 'Blond', 'Street Truck', 'Collects baseball cards');
+addVillain(sherrifPaulDrive3);
 console.log(villains);
 
 //NPC
@@ -86,9 +93,71 @@ addNpc(mark);
 addNpc(merill);
 console.log(npcs);
 
-$('#mga-display').addClass('gs')
-mexico.updateCity();
+//part of game start
+// $('#mga-display').addClass('gs') changes to hq background
+// mexico.updateCity();
 
+//Game
+//Game Logic?
+
+//Button Behavior
+
+//Phone
+//Phone buttons should work and display on screen if I want to call someone
+//Not sure in this interation
+
+//Travel
+//Travel button needs to change mga display to map with travel choices, change phone display to some image,
+//store choice in travel log *local storage?
+//info screen needs to show available list of flights as well
+//once flight is confirmed subtract 8 hours from time remaining
+$('#sd-one').on('click', function() {
+  console.log('travel works')
+
+});
+
+//Crime-Net
+//Crime-Net button needs to provide a hint to find the criminal
+$('#sd-two').on('click', function() {
+  console.log('crime works')
+
+});
+
+//Warrant
+//Warrant button needs to pull up evidence where you can make your final changes and then submit your evidence
+//which will be compared to the dossier if there is a match warrant is issued if not need more evidence
+//change phone display to cop
+//Evidence
+//Evidence needs to pull an empty object from local storage and then populate it and be able to save the changes
+$('#evi-btn').on('click', function() {
+  $('#mga-info').text('works')
+});
+//Dossier
+//Dossier needs to get the names of the villians once the villians are listed clicking on them should bring up their profile in the same screen
+$('#dos-btn').on('click', function() {
+  // for (let i= 0; i < villains.length; i += 1) {
+  //   $('#mga-info').text(villains[i].name)
+  // }
+  let names = villains.map(function(villain) {
+    return villain.name
+  });
+  $('#mga-info').text(names)
+});
+//Options
+//Options should show a menu item for travel log once clicked it should show the places you have been *should be stored when the travel button is clicked
+$('opt-btn').on('click', function() {
+
+});
+//Transmit
+//Transmit button allows you to use enter instead of mouse not sure if necessary for this iteration
+$('#trans-btn').on('click', function() {
+
+});
+//Cancel
+//Cancel button should go back a menu and from main menu ask to quit game
+$('#canc-btn').on('click', function() {
+
+});
 
 
 }); //End of document
