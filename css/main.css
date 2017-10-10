@@ -4,6 +4,8 @@ html {
 body {
   min-height: 100vh;
   /*background-image: url(../media/imgs/digitalworld.jpg);*/
+  background: #000B29;
+  color: #F8F5F2;
 }
 
 .body-wrap {
@@ -24,8 +26,7 @@ body {
   margin: 5px;
   border: 2px solid black;
   border-radius: 8px;
-}
-.phone-wrap div {
+  background: #D70026;
 }
 #p-scrn {
   flex: 2;
@@ -33,17 +34,33 @@ body {
   margin: 5px;
   border: 1px solid black;
   border-radius: 8px;
+  background: #000B29;
 }
 .p-sd {
   display: flex;
   margin: 0 5px;
   border-radius: 8px;
 }
+.sd-r {
+  padding-left: 5px;
+}
 .p-sd div {
   flex: 1;
   height: 50px;
   border: 1px solid black;
   border-radius: 8px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #EDB83D;
+  color: #000B29;
+}
+.p-sd div:active {
+  color: #D70026;
+}
+.p-sd div:hover {
+  color: #F8F5F2;
 }
 .p-btns {
   flex: 1;
@@ -62,6 +79,12 @@ body {
   border: 1px solid black;
   border-radius: 8px;
   padding: 10px;
+  background: #EDB83D;
+  color: #000B29;
+}
+
+.btn:hover {
+  color: #D70026;
 }
 /*Main Game Area*/
 .main-game-area-wrap {
@@ -74,6 +97,7 @@ body {
   margin: 5px;
   border: 1px solid black;
   border-radius: 8px;
+  background: #D70026;
 }
 
 #mga-display {
@@ -95,6 +119,7 @@ body {
   border-radius: 8px;
   margin: 0 2px;
   overflow-y: hidden;
+  padding: 5px;
 }
 .mga-optns {
   flex: 1;
@@ -113,6 +138,11 @@ body {
 #optns-btns button {
   height: 40px;
   border-radius: 8px;
+  text-align: center;
+  font-size: 12px;
+  background: #EDB83D;
+  color: #000B29;
+  padding: 1px;
 }
 #optns-scrn {
   width: 80%;
@@ -124,13 +154,22 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  height: 200px;
+  height: 400px;
+  background: #D70026;
 }
 #gs-loc {
   flex: 1;
+  background-image: url(../media/imgs/thundercatslogo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#gs-loc img {
+  max-height: 100%;
+  max-width: 100%;
 }
 #gs-timer {
   flex: 1;
+  padding: 5px;
 }
 /*$External CSS*/
 .gs {
