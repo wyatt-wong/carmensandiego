@@ -75,17 +75,23 @@ let sherrifPaulDrive = new Villain('Sherrif Paul Drive', 'Male', 'Drug Store Cow
 addVillain(sherrifPaulDrive);
 let kareem = new Villain('Kareem', 'Male', 'Drug Store Cowboy', 'blue', 'Blond', 'Street Truck', 'Collects baseball cards');
 addVillain(kareem);
-// let sherrifPaulDrive3 = new Villain('Sherrif Paul Drive3', 'Male', 'Drug Store Cowboy', 'blue', 'Blond', 'Street Truck', 'Collects baseball cards');
-// addVillain(sherrifPaulDrive3);
+let sherrifPaulDrive3 = new Villain('Sherrif Paul Drive3', 'Male', 'Drug Store Cowboy', 'blue', 'Blond', 'Street Truck', 'Collects baseball cards');
+addVillain(sherrifPaulDrive3);
 console.log(villains);
 
 //NPC
 //NPC Constructor
-function Npc(name, img, goodHint, badHint) {
+function Npc(name, img, goodHint, badHint, evidence, cHint) {
   this.name = name;
   this.img = img;
   this.goodHint = goodHint;
   this.badHint = badHint;
+  this.evidence = evidence;
+  this.cHint = cHint
+  this.updateNpc = function() {
+
+  }
+
 }
 
 // function to add npc to npcs[];
@@ -93,10 +99,10 @@ function addNpc(npc) {
   npcs.push(npc);
 }
 
-// create npc
-let marsha = new Npc('Marsha', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about');
-let mark = new Npc('Mark', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about');
-let merill = new Npc('Merill', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about');
+// create npc for each country
+let marsha = new Npc('Marsha', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about', 'evidence box', 'Here is your hint');
+let mark = new Npc('Mark', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about', 'evidence box', 'Here is your hint');
+let merill = new Npc('Merill', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about', 'evidence box', 'Here is your hint');
 addNpc(marsha);
 addNpc(mark);
 addNpc(merill);
@@ -163,26 +169,33 @@ $('#dos-btn').on('click', function() {
     $('#mga-info').text('');
   }
   $clear();
-  // function to create list
+  // function to create ul and li from villains array of objects
   let $vilList = $('<ul>')
-  let $li;
   $.each(villains, function(index, val) {
-    $li = $('<li>'+val.name+'</li>');
+    let $li = $('<li>'+val.name+'</li>');
     $($vilList).append($li);
     console.log($vilList)
     console.log($li.text())
-  });
-
-  $('#mga-info').append($vilList)
-
-  $($vilList).on('click', $li, function() {
+    //function that
+  $($li).on('click', function() {
      for(obj in villains) {
-      if ($li.text() === villains[obj].name) {
-        console.log(villains[obj])
-     // $('#mga-info').text(villians[obj])
-      }
+       if ($li.text() === villains[obj].name) {
+         vilObj = villains[obj]
+         console.log(vilObj)
+         let $vilStats = $('<ul>');
+         for (let key in vilObj) {
+          let $vilLi = $('<li>');
+          $vilLi.text(`${key}: ${vilObj[key]}`);
+          $($vilStats).append($vilLi);
+         }
+         $clear();
+  $('#mga-info').append($vilStats)
+       }
      }
   })
+
+});
+  $('#mga-info').append($vilList)
 });
 //Options
 //Options should show a menu item for travel log once clicked it should show the places you have been *should be stored when the travel button is clicked
@@ -199,16 +212,6 @@ $('#trans-btn').on('click', function() {
 $('#canc-btn').on('click', function() {
 
 });
-
-//function to parse villians
-function parse(name) {
-  array.filter(e => e.name === name).map( e=> {
-    let obj;
-    obj = `<ul>
-              <li>e.name</li>`
-  })
-}
-
 
 }); //End of document
 
