@@ -13,7 +13,7 @@ let isVillian; //flag for if the villain is in town or not, responses change dep
 
 //Countries
 //Country Constructor
-function Country(name, flag, cap, pop, lang, nd, landmark, info) {
+function Country(name, flag, cap, pop, lang, nd, landmark, info, hint) {
   this.name = name;
   this.flag = flag;
   this.cap = cap;
@@ -22,9 +22,14 @@ function Country(name, flag, cap, pop, lang, nd, landmark, info) {
   this.nd = nd;
   this.landmark = landmark;
   this.info = info;
+  this.hint = hint;
+
   //function that updates all views depending on the country
   this.updateCity = function() {
-    // $('#mga-display').css({'background-image': 'url('+$(this).flag+')'})
+    $('#mga-display').css({'background-image': `url(${this.flag})`});
+    $('#mga-info').text(`${this.info}`)
+    $('#location').text(`${this.name}`)
+    $('#sd-two').data('hint', `${this.hint}`)
   }
 
   }
@@ -35,9 +40,9 @@ function addCountry(country) {
 }
 
 //Create country
-let columbia = new Country('Columbia', '../media/imgs/flagofcolumbia.png', 'Bogota', '49m', 'Spanish', 'Bandeja paisa', 'Zipaquira Salt Cathedral','A country in northwestern South America, Colombia is credited to be the 26th largest nation in the world. In South America, it claims the distinction of being the fourth largest country, after Brazil, Argentina and Peru. The culture of Colombia is known for its diversity. The country has long been influenced by Europeans, Spanish, Africans, Americans, Caribbean and the Middle East people. Though Colombia is predominantly Roman Catholic, yet a number of other festivals, such as the Barranquilla Carnival, are celebrated with immense gaiety.')
-let costaRica = new Country('Costa Rica', '../media/imgs/flagofcostarica.png', 'San Jose', '4.8m', 'Spanish', 'Gallo Pinto', 'Arenal Volcano National Park', 'Over a quarter of the land in the country is dedicated to conservation.  Tourists and locals love to enjoy and appreciate Costa Rica’s natural beauty.  And the government is committed to keeping it that way.  Would you believe there are 20 national parks, 8 biological reserves, various animal refuges and protected areas?  All of this commitment to protecting the environment adds up to 26% of the land being protected in one way or another.')
-let mexico = new Country('Mexico', '../media/imgs/flagofmexico.jpg', 'Mexico City', '119m', 'Spanish', 'Mole Poblano', 'Chichen Itza in Yucatan Peninsula', 'Chocolate was discovered in Mexico and was made by the Meso-American people into a sweet beverage using natural sweeteners. The word ‘chocolate’ derives from the language of the Aztecs, Náhuatl (xocolatl : xoco, bitter + atl, water). Ixcacao is the Mayan Goddess of chocolate. Corn (Zea maiz) was first cultivated in central Mexico. Most chillies come from Mexico, the word derived from the Náhuatl word chilli.')
+let columbia = new Country('Columbia', './media/imgs/flagofcolumbia.png', 'Bogota', '49m', 'Spanish', 'Bandeja paisa', 'Zipaquira Salt Cathedral','A country in northwestern South America, Colombia is credited to be the 26th largest nation in the world. In South America, it claims the distinction of being the fourth largest country, after Brazil, Argentina and Peru. The culture of Colombia is known for its diversity. The country has long been influenced by Europeans, Spanish, Africans, Americans, Caribbean and the Middle East people. Though Colombia is predominantly Roman Catholic, yet a number of other festivals, such as the Barranquilla Carnival, are celebrated with immense gaiety.','Here is a hint')
+let costaRica = new Country('Costa Rica', '../media/imgs/flagofcostarica.png', 'San Jose', '4.8m', 'Spanish', 'Gallo Pinto', 'Arenal Volcano National Park', 'Over a quarter of the land in the country is dedicated to conservation.  Tourists and locals love to enjoy and appreciate Costa Rica’s natural beauty.  And the government is committed to keeping it that way.  Would you believe there are 20 national parks, 8 biological reserves, various animal refuges and protected areas?  All of this commitment to protecting the environment adds up to 26% of the land being protected in one way or another.', 'Here is a hint')
+let mexico = new Country('Mexico', './media/imgs/flagofmexio.png', 'Mexico City', '119m', 'Spanish', 'Mole Poblano', 'Chichen Itza in Yucatan Peninsula', 'Chocolate was discovered in Mexico and was made by the Meso-American people into a sweet beverage using natural sweeteners. The word ‘chocolate’ derives from the language of the Aztecs, Náhuatl (xocolatl : xoco, bitter + atl, water). Ixcacao is the Mayan Goddess of chocolate. Corn (Zea maiz) was first cultivated in central Mexico. Most chillies come from Mexico, the word derived from the Náhuatl word chilli.', 'Here is a hint')
 addCountry(columbia);
 addCountry(costaRica);
 addCountry(mexico);
@@ -59,6 +64,10 @@ function Villain(name, sex, occupation, eyes, hair, auto, comments) {
 //Function that adds villain to villains[];
 function addVillain(villain) {
   villains.push(villain);
+}
+
+function villianList(villian) {
+
 }
 
 //Create villain
@@ -93,9 +102,11 @@ addNpc(mark);
 addNpc(merill);
 console.log(npcs);
 
+
 //part of game start
 // $('#mga-display').addClass('gs') changes to hq background
-// mexico.updateCity();
+mexico.updateCity();
+columbia.updateCity();
 
 //Game
 //Game Logic?
@@ -112,14 +123,15 @@ console.log(npcs);
 //info screen needs to show available list of flights as well
 //once flight is confirmed subtract 8 hours from time remaining
 $('#sd-one').on('click', function() {
-  console.log('travel works')
+  $('#mga-travel-display').toggle();
 
 });
 
 //Crime-Net
 //Crime-Net button needs to provide a hint to find the criminal
 $('#sd-two').on('click', function() {
-  console.log('crime works')
+  let hint = $('#sd-two').data('hint');
+  $('#p-scrn').text(hint);
 
 });
 
@@ -135,13 +147,24 @@ $('#evi-btn').on('click', function() {
 //Dossier
 //Dossier needs to get the names of the villians once the villians are listed clicking on them should bring up their profile in the same screen
 $('#dos-btn').on('click', function() {
-  // for (let i= 0; i < villains.length; i += 1) {
-  //   $('#mga-info').text(villains[i].name)
-  // }
-  let names = villains.map(function(villain) {
-    return villain.name
+  let $vilList = $('<ul>')
+  let $clear = function() {
+    $('mga-info').html(' ');
+  }
+  $clear();
+  $.each(villains, function(index, val) {
+    let $li = $('<li>'+val.name+'</li>');
+
+
+    $($vilList).on('click', $li, function() {
+     $('#mga-info').text('This Works')
+    })
+    $($vilList).append($li);
+    console.log($vilList)
+    console.log($li.text())
   });
-  $('#mga-info').text(names)
+
+  $('#mga-info').append($vilList)
 });
 //Options
 //Options should show a menu item for travel log once clicked it should show the places you have been *should be stored when the travel button is clicked

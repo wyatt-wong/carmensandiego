@@ -6,6 +6,8 @@ body {
   /*background-image: url(../media/imgs/digitalworld.jpg);*/
   background: #000B29;
   color: #F8F5F2;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .body-wrap {
@@ -14,6 +16,8 @@ body {
   justify-content: space-around;
   align-items: center;
   margin: 20px;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 /*Phone CSS*/
 .phone-wrap {
@@ -99,13 +103,35 @@ body {
   border-radius: 8px;
   background: #D70026;
 }
-
-#mga-display {
-  flex: 2;
+.mga-display-wrap {
+  min-width: 350px;
   height: 400px;
   margin: 5px;
   border: 1px solid black;
   border-radius: 8px;
+  position: relative;
+}
+#mga-display {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 8px;
+  position: absolute;
+}
+#mga-travel-display {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 8px;
+  position: absolute;
+  display: none;
+  background: orange;
+  display: flex;
+}
+.trav {
+  height: 100px;
+  width: 100px;
+  background: red;
 }
 .mga-info-wrap {
   display: flex;
@@ -118,7 +144,7 @@ body {
   border: 1px solid black;
   border-radius: 8px;
   margin: 0 2px;
-  overflow-y: hidden;
+  overflow-y: scroll;
   padding: 5px;
 }
 .mga-optns {
@@ -156,6 +182,7 @@ body {
   box-sizing: border-box;
   height: 400px;
   background: #D70026;
+  border-radius: 8px;
 }
 #gs-loc {
   flex: 1;
