@@ -41,8 +41,8 @@ function addCountry(country) {
 
 //Create country
 let columbia = new Country('Columbia', './media/imgs/flagofcolumbia.png', 'Bogota', '49m', 'Spanish', 'Bandeja paisa', 'Zipaquira Salt Cathedral','A country in northwestern South America, Colombia is credited to be the 26th largest nation in the world. In South America, it claims the distinction of being the fourth largest country, after Brazil, Argentina and Peru. The culture of Colombia is known for its diversity. The country has long been influenced by Europeans, Spanish, Africans, Americans, Caribbean and the Middle East people. Though Colombia is predominantly Roman Catholic, yet a number of other festivals, such as the Barranquilla Carnival, are celebrated with immense gaiety.','Here is a hint')
-let costaRica = new Country('Costa Rica', '../media/imgs/flagofcostarica.png', 'San Jose', '4.8m', 'Spanish', 'Gallo Pinto', 'Arenal Volcano National Park', 'Over a quarter of the land in the country is dedicated to conservation.  Tourists and locals love to enjoy and appreciate Costa Rica’s natural beauty.  And the government is committed to keeping it that way.  Would you believe there are 20 national parks, 8 biological reserves, various animal refuges and protected areas?  All of this commitment to protecting the environment adds up to 26% of the land being protected in one way or another.', 'Here is a hint')
-let mexico = new Country('Mexico', './media/imgs/flagofmexio.png', 'Mexico City', '119m', 'Spanish', 'Mole Poblano', 'Chichen Itza in Yucatan Peninsula', 'Chocolate was discovered in Mexico and was made by the Meso-American people into a sweet beverage using natural sweeteners. The word ‘chocolate’ derives from the language of the Aztecs, Náhuatl (xocolatl : xoco, bitter + atl, water). Ixcacao is the Mayan Goddess of chocolate. Corn (Zea maiz) was first cultivated in central Mexico. Most chillies come from Mexico, the word derived from the Náhuatl word chilli.', 'Here is a hint')
+let costaRica = new Country('Costa Rica', './media/imgs/flagofcostarica.png', 'San Jose', '4.8m', 'Spanish', 'Gallo Pinto', 'Arenal Volcano National Park', 'Over a quarter of the land in the country is dedicated to conservation.  Tourists and locals love to enjoy and appreciate Costa Rica’s natural beauty.  And the government is committed to keeping it that way.  Would you believe there are 20 national parks, 8 biological reserves, various animal refuges and protected areas?  All of this commitment to protecting the environment adds up to 26% of the land being protected in one way or another.', 'Here is a hint')
+let mexico = new Country('Mexico', './media/imgs/flagofmexio.png', 'Mexico City', '119m', 'Spanish', 'Mole Poblano', 'Chichen Itza in Yucatan Peninsula', 'Chocolate was discovered in Mexico and was made by the Meso-American people into a sweet beverage using natural sweeteners. The word ‘chocolate’ derives from the language of the Aztecs, Náhuatl (xocolatl : xoco, bitter + atl, water). Ixcacao is the Mayan Goddess of chocolate. Corn (Zea maiz) was first cultivated in central Mexico. Most chillies come from Mexico, the word derived from the Náhuatl word chilli.', 'Last Seen going to a coutry where the national dish is Gallo Pinto')
 addCountry(columbia);
 addCountry(costaRica);
 addCountry(mexico);
@@ -73,10 +73,10 @@ function villianList(villian) {
 //Create villain
 let sherrifPaulDrive = new Villain('Sherrif Paul Drive', 'Male', 'Drug Store Cowboy', 'blue', 'Blond', 'Street Truck', 'Collects baseball cards');
 addVillain(sherrifPaulDrive);
-let sherrifPaulDrive2 = new Villain('Sherrif Paul Drive2', 'Male', 'Drug Store Cowboy', 'blue', 'Blond', 'Street Truck', 'Collects baseball cards');
-addVillain(sherrifPaulDrive2);
-let sherrifPaulDrive3 = new Villain('Sherrif Paul Drive3', 'Male', 'Drug Store Cowboy', 'blue', 'Blond', 'Street Truck', 'Collects baseball cards');
-addVillain(sherrifPaulDrive3);
+let kareem = new Villain('Kareem', 'Male', 'Drug Store Cowboy', 'blue', 'Blond', 'Street Truck', 'Collects baseball cards');
+addVillain(kareem);
+// let sherrifPaulDrive3 = new Villain('Sherrif Paul Drive3', 'Male', 'Drug Store Cowboy', 'blue', 'Blond', 'Street Truck', 'Collects baseball cards');
+// addVillain(sherrifPaulDrive3);
 console.log(villains);
 
 //NPC
@@ -105,8 +105,8 @@ console.log(npcs);
 
 //part of game start
 // $('#mga-display').addClass('gs') changes to hq background
-mexico.updateCity();
-columbia.updateCity();
+
+
 
 //Game
 //Game Logic?
@@ -124,7 +124,18 @@ columbia.updateCity();
 //once flight is confirmed subtract 8 hours from time remaining
 $('#sd-one').on('click', function() {
   $('#mga-travel-display').toggle();
+});
 
+$('#trav1').on('click', function() {
+  mexico.updateCity();
+});
+
+$('#trav2').on('click', function() {
+  columbia.updateCity();
+});
+
+$('#trav3').on('click', function() {
+  costaRica.updateCity();
 });
 
 //Crime-Net
@@ -147,24 +158,31 @@ $('#evi-btn').on('click', function() {
 //Dossier
 //Dossier needs to get the names of the villians once the villians are listed clicking on them should bring up their profile in the same screen
 $('#dos-btn').on('click', function() {
-  let $vilList = $('<ul>')
+  // function to clear div
   let $clear = function() {
-    $('mga-info').html(' ');
+    $('#mga-info').text('');
   }
   $clear();
+  // function to create list
+  let $vilList = $('<ul>')
+  let $li;
   $.each(villains, function(index, val) {
-    let $li = $('<li>'+val.name+'</li>');
-
-
-    $($vilList).on('click', $li, function() {
-     $('#mga-info').text('This Works')
-    })
+    $li = $('<li>'+val.name+'</li>');
     $($vilList).append($li);
     console.log($vilList)
     console.log($li.text())
   });
 
   $('#mga-info').append($vilList)
+
+  $($vilList).on('click', $li, function() {
+     for(obj in villains) {
+      if ($li.text() === villains[obj].name) {
+        console.log(villains[obj])
+     // $('#mga-info').text(villians[obj])
+      }
+     }
+  })
 });
 //Options
 //Options should show a menu item for travel log once clicked it should show the places you have been *should be stored when the travel button is clicked
@@ -181,6 +199,15 @@ $('#trans-btn').on('click', function() {
 $('#canc-btn').on('click', function() {
 
 });
+
+//function to parse villians
+function parse(name) {
+  array.filter(e => e.name === name).map( e=> {
+    let obj;
+    obj = `<ul>
+              <li>e.name</li>`
+  })
+}
 
 
 }); //End of document
