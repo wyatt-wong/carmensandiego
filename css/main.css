@@ -127,11 +127,24 @@ body {
   display: none;
   background: orange;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-around;
 }
+
 .trav {
-  height: 100px;
-  width: 100px;
+  flex: 1;
+  height: 150px;
   background: red;
+  margin: 7px;
+  box-shadow: 5px 5px 2px #000B29;
+}
+.trav:active {
+  transform: translateY(5px);
+}
+#trav2 {
+  align-self: flex-end;
+  margin-bottom: 10px;
 }
 .mga-info-wrap {
   display: flex;
