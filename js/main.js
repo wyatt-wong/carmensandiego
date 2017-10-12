@@ -119,7 +119,7 @@ $(document).ready(function() {
   const updateInfo = function(country) {
     let ul = $('<ul>');
     let li = $('<li>')
-    ul.append(li.text(country.npc));
+    ul.append(li.text(country.npc.goodHint));
     // ul.append(li.text(country.npc.evidence));
     // ul.append(li.text(country.npc.cHint));
     console.log(ul)
