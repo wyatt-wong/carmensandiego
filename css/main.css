@@ -8,13 +8,23 @@ body {
   color: #F8F5F2;
   overflow-y: hidden;
   overflow-x: hidden;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 11px;
 }
+.head {
+  height: 100px;
+  width: 100%;
+  background-image: url(../media/imgs/carmenhead1.jpeg);
+  background-size: cover;
+  background-position: 0% 10%;
+}
+
 
 .body-wrap {
   display: flex;
   height: 100vh;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   margin: 20px;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -204,6 +214,7 @@ body {
   height: 400px;
   background: #D70026;
   border-radius: 8px;
+  margin: 5px;
 }
 #gs-loc {
   flex: 1;
@@ -219,11 +230,12 @@ body {
 #gs-timer {
   flex: 1;
   padding: 5px;
+  line-height: 15px;
 }
 #gs-timer h2{
   text-align: center;
 }
-/*$External CSS*/
+/*$External CSS For JQuery*/
 .gs {
   background-image: url(../media/imgs/cartoonhq.jpg);
   background-size: cover;
