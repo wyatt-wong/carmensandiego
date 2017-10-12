@@ -1,6 +1,5 @@
 $(document).ready(function() {
   console.log('document ready!')
-
 //Global Variables I know not a good idea
 let countries = [];
 let villains = [];
@@ -10,10 +9,45 @@ let timeRemaining = 160; // current time remainig
 let currentLoc; //current coutnry
 let isVillian; //flag for if the villain is in town or not, responses change depending on this flag
 
+const gameStart = function() {
+  $('#p-scrn').toggleClass('earth');
+  $('#mga-display').addClass('gs');
+  $('#rank').text('Gumshoe');
+  $('#location').text('HQ');
+  $('#stolen').text('The Cookie Jar')
+  $('#time-remaining').text(`${timeRemaining} hrs`);
+}
+  gameStart();
+
+//NPC
+//NPC Constructor
+function Npc(name, img, goodHint, badHint, evidence, cHint) {
+  this.name = name;
+  this.img = img;
+  this.goodHint = goodHint;
+  this.badHint = badHint;
+  this.evidence = evidence;
+  this.cHint = cHint
+
+}
+
+// function to add npc to npcs[];
+function addNpc(npc) {
+  npcs.push(npc);
+}
+
+// create npc for each country
+let marsha = new Npc('Marsha', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about', 'evidence box', 'Here is your hint');
+let mark = new Npc('Mark', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about', 'evidence box', 'Here is your hint');
+let merill = new Npc('Merill', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about', 'evidence box', 'Here is your hint');
+addNpc(marsha);
+addNpc(mark);
+addNpc(merill);
+console.log(npcs);
 
 //Countries
 //Country Constructor
-function Country(name, flag, cap, pop, lang, nd, landmark, info, hint) {
+function Country(name, flag, cap, pop, lang, nd, landmark, info, hint, npc) {
   this.name = name;
   this.flag = flag;
   this.cap = cap;
@@ -23,6 +57,7 @@ function Country(name, flag, cap, pop, lang, nd, landmark, info, hint) {
   this.landmark = landmark;
   this.info = info;
   this.hint = hint;
+  this.npc = npc;
 
   //function that updates all views depending on the country
   this.updateCity = function() {
@@ -33,20 +68,6 @@ function Country(name, flag, cap, pop, lang, nd, landmark, info, hint) {
   }
 
   }
-
-//Function that adds country to countries[];
-function addCountry(country) {
-  countries.push(country)
-}
-
-//Create country
-let columbia = new Country('Columbia', './media/imgs/flagofcolumbia.png', 'Bogota', '49m', 'Spanish', 'Bandeja paisa', 'Zipaquira Salt Cathedral','A country in northwestern South America, Colombia is credited to be the 26th largest nation in the world. In South America, it claims the distinction of being the fourth largest country, after Brazil, Argentina and Peru. The culture of Colombia is known for its diversity. The country has long been influenced by Europeans, Spanish, Africans, Americans, Caribbean and the Middle East people. Though Colombia is predominantly Roman Catholic, yet a number of other festivals, such as the Barranquilla Carnival, are celebrated with immense gaiety.','Here is a hint')
-let costaRica = new Country('Costa Rica', './media/imgs/flagofcostarica.png', 'San Jose', '4.8m', 'Spanish', 'Gallo Pinto', 'Arenal Volcano National Park', 'Over a quarter of the land in the country is dedicated to conservation.  Tourists and locals love to enjoy and appreciate Costa Rica’s natural beauty.  And the government is committed to keeping it that way.  Would you believe there are 20 national parks, 8 biological reserves, various animal refuges and protected areas?  All of this commitment to protecting the environment adds up to 26% of the land being protected in one way or another.', 'Here is a hint')
-let mexico = new Country('Mexico', './media/imgs/flagofmexio.png', 'Mexico City', '119m', 'Spanish', 'Mole Poblano', 'Chichen Itza in Yucatan Peninsula', 'Chocolate was discovered in Mexico and was made by the Meso-American people into a sweet beverage using natural sweeteners. The word ‘chocolate’ derives from the language of the Aztecs, Náhuatl (xocolatl : xoco, bitter + atl, water). Ixcacao is the Mayan Goddess of chocolate. Corn (Zea maiz) was first cultivated in central Mexico. Most chillies come from Mexico, the word derived from the Náhuatl word chilli.', 'Last Seen going to a coutry where the national dish is Gallo Pinto')
-addCountry(columbia);
-addCountry(costaRica);
-addCountry(mexico);
-console.log(countries)
 
 //Villans
 
@@ -79,40 +100,39 @@ let sherrifPaulDrive3 = new Villain('Sherrif Paul Drive3', 'Male', 'Drug Store C
 addVillain(sherrifPaulDrive3);
 console.log(villains);
 
-//NPC
-//NPC Constructor
-function Npc(name, img, goodHint, badHint, evidence, cHint) {
-  this.name = name;
-  this.img = img;
-  this.goodHint = goodHint;
-  this.badHint = badHint;
-  this.evidence = evidence;
-  this.cHint = cHint
-  this.updateNpc = function() {
-
-  }
-
+//Function that adds country to countries[];
+function addCountry(country) {
+  countries.push(country)
 }
 
-// function to add npc to npcs[];
-function addNpc(npc) {
-  npcs.push(npc);
+//Create country
+let colombia = new Country('Colombia', './media/imgs/flagofcolombia.png', 'Bogota', '49m', 'Spanish', 'Bandeja paisa', 'Zipaquira Salt Cathedral','A country in northwestern South America, Colombia is credited to be the 26th largest nation in the world. In South America, it claims the distinction of being the fourth largest country, after Brazil, Argentina and Peru. The culture of Colombia is known for its diversity. The country has long been influenced by Europeans, Spanish, Africans, Americans, Caribbean and the Middle East people. Though Colombia is predominantly Roman Catholic, yet a number of other festivals, such as the Barranquilla Carnival, are celebrated with immense gaiety.','Here is a hint', marsha)
+let costaRica = new Country('Costa Rica', './media/imgs/flagofcostarica.png', 'San Jose', '4.8m', 'Spanish', 'Gallo Pinto', 'Arenal Volcano National Park', 'Over a quarter of the land in the country is dedicated to conservation.  Tourists and locals love to enjoy and appreciate Costa Rica’s natural beauty.  And the government is committed to keeping it that way.  Would you believe there are 20 national parks, 8 biological reserves, various animal refuges and protected areas?  All of this commitment to protecting the environment adds up to 26% of the land being protected in one way or another.', 'Here is a hint', mark)
+let mexico = new Country('Mexico', './media/imgs/mexico.jpeg', 'Mexico City', '119m', 'Spanish', 'Mole Poblano', 'Chichen Itza in Yucatan Peninsula', 'Chocolate was discovered in Mexico and was made by the Meso-American people into a sweet beverage using natural sweeteners. The word ‘chocolate’ derives from the language of the Aztecs, Náhuatl (xocolatl : xoco, bitter + atl, water). Ixcacao is the Mayan Goddess of chocolate. Corn (Zea maiz) was first cultivated in central Mexico. Most chillies come from Mexico, the word derived from the Náhuatl word chilli.', 'Last Seen going to a coutry where the national dish is Gallo Pinto', merill)
+
+addCountry(colombia);
+addCountry(costaRica);
+addCountry(mexico);
+console.log(countries)
+
+//function for setting up npc and search criteria
+const updateInfo = function(country) {
+  let ul = $('<ul>');
+  let li = $('<li>')
+  ul.append(li.text(country.npc.goodHint));
+  // ul.append(li.text(country.npc.evidence));
+  // ul.append(li.text(country.npc.cHint));
+  console.log(ul)
+  $('#optns-scrn').append(ul);
 }
 
-// create npc for each country
-let marsha = new Npc('Marsha', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about', 'evidence box', 'Here is your hint');
-let mark = new Npc('Mark', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about', 'evidence box', 'Here is your hint');
-let merill = new Npc('Merill', 'http://www.google.com', 'She said something about checking out the x', 'I have no idea who you are talking about', 'evidence box', 'Here is your hint');
-addNpc(marsha);
-addNpc(mark);
-addNpc(merill);
-console.log(npcs);
-
-
-//part of game start
-// $('#mga-display').addClass('gs') changes to hq background
-
-
+//function for travel animation
+let planeAni = function() {
+  let div = $('<div>');
+  div.addClass('air-ani')
+  $(div).animate({left: "+=500"}, 2000);
+  console.log('this function has run');
+}
 
 //Game
 //Game Logic?
@@ -129,15 +149,19 @@ console.log(npcs);
 //info screen needs to show available list of flights as well
 //once flight is confirmed subtract 8 hours from time remaining
 $('#sd-one').on('click', function() {
-  $('#mga-travel-display').toggle();
+  $('#p-scrn').toggleClass('airplane');
+  $('#p-scrn').toggleClass('earth');
+  $('#mga-display').toggle();
 });
 
 $('#trav1').on('click', function() {
   mexico.updateCity();
+  updateInfo(mexico);
+  planeAni();
 });
 
 $('#trav2').on('click', function() {
-  columbia.updateCity();
+  colombia.updateCity();
 });
 
 $('#trav3').on('click', function() {

@@ -38,7 +38,7 @@ body {
   margin: 5px;
   border: 1px solid black;
   border-radius: 8px;
-  background: #000B29;
+  /*background: #000B29;*/
 }
 .p-sd {
   display: flex;
@@ -112,6 +112,7 @@ body {
   position: relative;
 }
 #mga-display {
+  display: block;
   height: 100%;
   width: 100%;
   border: 1px solid black;
@@ -123,13 +124,12 @@ body {
   width: 100%;
   border: 1px solid black;
   border-radius: 8px;
-  position: absolute;
-  display: none;
   background: orange;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   align-content: space-around;
+  position: absolute;
 }
 
 .trav {
@@ -142,9 +142,19 @@ body {
 .trav:active {
   transform: translateY(5px);
 }
+#trav1 {
+  background-image: url(../media/imgs/mexicopost.jpeg);
+  background-size: 100% 100%;
+}
 #trav2 {
   align-self: flex-end;
   margin-bottom: 10px;
+  background-image: url(../media/imgs/colombiapost.jpg);
+  background-size: 100% 100%;
+}
+#trav3 {
+  background-image: url(../media/imgs/costapost.jpg);
+  background-size: 100% 100%;
 }
 .mga-info-wrap {
   display: flex;
@@ -156,7 +166,6 @@ body {
   flex: 1;
   border: 1px solid black;
   border-radius: 8px;
-  margin: 0 2px;
   overflow-y: scroll;
   padding: 5px;
 }
@@ -165,8 +174,8 @@ body {
   display:flex;
   border: 1px solid black;
   border-radius: 8px;
-  margin: 0 2px;
-}
+/*  margin: 0 2px;
+*/}
 #optns-btns {
   flex:1;
   display: flex;
@@ -201,6 +210,7 @@ body {
   background-image: url(../media/imgs/thundercatslogo.png);
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
 }
 #gs-loc img {
   max-height: 100%;
@@ -210,10 +220,31 @@ body {
   flex: 1;
   padding: 5px;
 }
+#gs-timer h2{
+  text-align: center;
+}
 /*$External CSS*/
 .gs {
   background-image: url(../media/imgs/cartoonhq.jpg);
   background-size: cover;
+  display: block;
+}
+.airplane {
+  background: black;
+  background-image: url(../media/imgs/airplane.gif);
+  background-size: 100% 100%;
+}
+.earth {
+  background-image: url(../media/imgs/earth.gif);
+  background-size: cover;
+  background-position: 50% 0%;
+}
+.air-ani {
+  position: absolute;
+  background-image: url(../media/imgs/airplane.png);
+  height: 200px;
+  width: 200px;
+
 }
 
 
