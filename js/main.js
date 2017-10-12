@@ -106,8 +106,8 @@ $(document).ready(function() {
   }
 
   //Create country
-  let colombia = new Country('Colombia', './media/imgs/flagofcolombia.png', 'Bogota', '49m', 'Spanish', 'Bandeja paisa', 'Zipaquira Salt Cathedral', 'A country in northwestern South America, Colombia is credited to be the 26th largest nation in the world. In South America, it claims the distinction of being the fourth largest country, after Brazil, Argentina and Peru. The culture of Colombia is known for its diversity. The country has long been influenced by Europeans, Spanish, Africans, Americans, Caribbean and the Middle East people. Though Colombia is predominantly Roman Catholic, yet a number of other festivals, such as the Barranquilla Carnival, are celebrated with immense gaiety.', 'Here is a hint', marsha)
-  let costaRica = new Country('Costa Rica', './media/imgs/flagofcostarica.png', 'San Jose', '4.8m', 'Spanish', 'Gallo Pinto', 'Arenal Volcano National Park', 'Over a quarter of the land in the country is dedicated to conservation.  Tourists and locals love to enjoy and appreciate Costa Rica’s natural beauty.  And the government is committed to keeping it that way.  Would you believe there are 20 national parks, 8 biological reserves, various animal refuges and protected areas?  All of this commitment to protecting the environment adds up to 26% of the land being protected in one way or another.', 'Here is a hint', mark)
+  let colombia = new Country('Colombia', './media/imgs/colombia.jpg', 'Bogota', '49m', 'Spanish', 'Bandeja paisa', 'Zipaquira Salt Cathedral', 'A country in northwestern South America, Colombia is credited to be the 26th largest nation in the world. In South America, it claims the distinction of being the fourth largest country, after Brazil, Argentina and Peru. The culture of Colombia is known for its diversity. The country has long been influenced by Europeans, Spanish, Africans, Americans, Caribbean and the Middle East people. Though Colombia is predominantly Roman Catholic, yet a number of other festivals, such as the Barranquilla Carnival, are celebrated with immense gaiety.', 'Here is a hint', marsha)
+  let costaRica = new Country('Costa Rica', './media/imgs/costarica.jpg', 'San Jose', '4.8m', 'Spanish', 'Gallo Pinto', 'Arenal Volcano National Park', 'Over a quarter of the land in the country is dedicated to conservation.  Tourists and locals love to enjoy and appreciate Costa Rica’s natural beauty.  And the government is committed to keeping it that way.  Would you believe there are 20 national parks, 8 biological reserves, various animal refuges and protected areas?  All of this commitment to protecting the environment adds up to 26% of the land being protected in one way or another.', 'Here is a hint', mark)
   let mexico = new Country('Mexico', './media/imgs/mexico.jpeg', 'Mexico City', '119m', 'Spanish', 'Mole Poblano', 'Chichen Itza in Yucatan Peninsula', 'Chocolate was discovered in Mexico and was made by the Meso-American people into a sweet beverage using natural sweeteners. The word ‘chocolate’ derives from the language of the Aztecs, Náhuatl (xocolatl : xoco, bitter + atl, water). Ixcacao is the Mayan Goddess of chocolate. Corn (Zea maiz) was first cultivated in central Mexico. Most chillies come from Mexico, the word derived from the Náhuatl word chilli.', 'Last Seen going to a coutry where the national dish is Gallo Pinto', merill)
 
   addCountry(colombia);
@@ -119,7 +119,7 @@ $(document).ready(function() {
   const updateInfo = function(country) {
     let ul = $('<ul>');
     let li = $('<li>')
-    ul.append(li.text(country.npc.goodHint));
+    ul.append(li.text(country.npc));
     // ul.append(li.text(country.npc.evidence));
     // ul.append(li.text(country.npc.cHint));
     console.log(ul)
@@ -169,19 +169,22 @@ $(document).ready(function() {
   $('#trav2').on('click', function() {
     colombia.updateCity();
     updateInfo(colombia);
+    timePenalty(8);
   });
 
   $('#trav3').on('click', function() {
     costaRica.updateCity();
     updateInfo(costaRica);
+    timePenalty(8);
   });
 
   //Crime-Net
   //Crime-Net button needs to provide a hint to find the criminal
   $('#sd-two').on('click', function() {
     let hint = $('#sd-two').data('hint');
+    // $('#p-scrn').addClass('blackbg')
     $('#p-scrn').text(hint);
-
+    timePenalty(2);
   });
 
   //Warrant

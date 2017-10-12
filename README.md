@@ -34,3 +34,6 @@ https://classicreload.com/where-in-the-world-is-carmen-sandiego-deluxe-edition.h
 http://www.boardgamecapital.com/where-in-the-world-is-carmen-sandiego-rules.htm
 https://media.wix.com/ugd/05f72c_977f441a32474b37beb57043a514158a.pdf
 http://www.webstepbook.com/supplements/homework/10-carmen_sandiego/
+
+
+

@@ -134,7 +134,8 @@ body {
   width: 100%;
   border: 1px solid black;
   border-radius: 8px;
-  background: orange;
+  background-image: url(../media/imgs/bubbles.jpg);
+  background-size: cover;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -178,6 +179,8 @@ body {
   border-radius: 8px;
   overflow-y: scroll;
   padding: 5px;
+  line-height: 15px;
+
 }
 .mga-optns {
   flex: 1;
@@ -237,7 +240,7 @@ body {
 }
 /*$External CSS For JQuery*/
 .gs {
-  background-image: url(../media/imgs/cartoonhq.jpg);
+  background-image: url(../media/imgs/newyork.jpeg);
   background-size: cover;
   display: block;
 }
@@ -257,7 +260,9 @@ body {
   background-size: 100% 100%;
   height: 200px;
   width: 200px;
-
+}
+.blackbg {
+  background: black;
 }
 
 
