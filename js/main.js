@@ -162,10 +162,12 @@ $('#trav1').on('click', function() {
 
 $('#trav2').on('click', function() {
   colombia.updateCity();
+  updateInfo(colombia);
 });
 
 $('#trav3').on('click', function() {
   costaRica.updateCity();
+  updateInfo(costaRica);
 });
 
 //Crime-Net
@@ -183,7 +185,7 @@ $('#sd-two').on('click', function() {
 //Evidence
 //Evidence needs to pull an empty object from local storage and then populate it and be able to save the changes
 $('#evi-btn').on('click', function() {
-  $('#mga-info').text('works')
+  $('#mga-info').text('Submit Evidence');
 });
 //Dossier
 //Dossier needs to get the names of the villians once the villians are listed clicking on them should bring up their profile in the same screen
@@ -223,8 +225,8 @@ $('#dos-btn').on('click', function() {
 });
 //Options
 //Options should show a menu item for travel log once clicked it should show the places you have been *should be stored when the travel button is clicked
-$('opt-btn').on('click', function() {
-
+$('#opt-btn').on('click', function() {
+  $('#mga-info').text('Travel Log');
 });
 //Transmit
 //Transmit button allows you to use enter instead of mouse not sure if necessary for this iteration
