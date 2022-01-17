@@ -30,10 +30,10 @@ phase 1: expand the game for further by adding more people places and things
 
 
 ## Links and Resources
-https://classicreload.com/where-in-the-world-is-carmen-sandiego-deluxe-edition.html
-http://www.boardgamecapital.com/where-in-the-world-is-carmen-sandiego-rules.htm
-https://media.wix.com/ugd/05f72c_977f441a32474b37beb57043a514158a.pdf
-http://www.webstepbook.com/supplements/homework/10-carmen_sandiego/
-
-
-
+| Description | URL |
+| --- | --- |
+| Where in the World is Carmen Sandiego Deluxe Edition | https://classicreload.com/where-in-the-world-is-carmen-sandiego-deluxe-edition.html |
+| Where In The World Is Carmen Sandiego Board Games | http://www.boardgamecapital.com/where-in-the-world-is-carmen-sandiego-rules.htm |
+| Where in the World is Carmen Sandiego? Instructions | https://media.wix.com/ugd/05f72c_977f441a32474b37beb57043a514158a.pdf |
+| Where in the World is Carmen Sandiego in Javascript | http://www.webstepbook.com/supplements/homework/10-carmen_sandiego/ |
+| --- | --- |
