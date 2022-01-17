@@ -36,4 +36,3 @@ phase 1: expand the game for further by adding more people places and things
 | Where In The World Is Carmen Sandiego Board Games | http://www.boardgamecapital.com/where-in-the-world-is-carmen-sandiego-rules.htm |
 | Where in the World is Carmen Sandiego? Instructions | https://media.wix.com/ugd/05f72c_977f441a32474b37beb57043a514158a.pdf |
 | Where in the World is Carmen Sandiego in Javascript | http://www.webstepbook.com/supplements/homework/10-carmen_sandiego/ |
-| --- | --- |
